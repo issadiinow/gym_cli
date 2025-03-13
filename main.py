@@ -31,7 +31,7 @@ def add_workout(user_id, title, category):
         click.echo(Fore.RED + "Error: User not found!" + Style.RESET_ALL)
         return
 
-    workout = Workout(exercise=title, category=category, user_id=user_id)  # ✅ FIXED
+    workout = Workout(exercise=title, category=category, user_id=user_id)  # ✅ Fixed
     session.add(workout)
     session.commit()
     click.echo(Fore.GREEN + f"Workout '{title}' added for user {user.name}!" + Style.RESET_ALL)
@@ -64,7 +64,7 @@ def list_workouts(user_id):
 
     click.echo(Fore.CYAN + f"Workouts for {user.name}:" + Style.RESET_ALL)
     for workout in workouts:
-        click.echo(f"- ID: {workout.id}, Title: {workout.title}, Category: {workout.category}")
+        click.echo(f"- ID: {workout.id}, Exercise: {workout.exercise}, Category: {workout.category}")
 
 @click.command()
 @click.option('--id', type=int, prompt="Enter Workout ID", help="Workout ID")
@@ -77,10 +77,10 @@ def update_workout(id, title, category):
         click.echo(Fore.RED + "Error: Workout not found!" + Style.RESET_ALL)
         return
 
-    workout.title = title
+    workout.exercise = title  # ✅ Fixed attribute
     workout.category = category
     session.commit()
-    click.echo(Fore.GREEN + "Workout updated successfully!" + Style.RESET_ALL)
+    click.echo(Fore.GREEN + f"Workout '{title}' updated successfully!" + Style.RESET_ALL)
 
 @click.command()
 @click.option('--id', type=int, prompt="Enter Workout ID", help="Workout ID")
@@ -93,7 +93,7 @@ def delete_workout(id):
 
     session.delete(workout)
     session.commit()
-    click.echo(Fore.GREEN + "Workout deleted successfully!" + Style.RESET_ALL)
+    click.echo(Fore.GREEN + f"Workout ID {id} deleted successfully!" + Style.RESET_ALL)
 
 # Add all commands to the CLI group
 cli.add_command(add_user)
