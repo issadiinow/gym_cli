@@ -35,7 +35,8 @@ Gym Not Jim is a command-line interface (CLI) fitness tracker built with Python 
 
 5. Initialize the database:
    ```sh
-   python setup_database.py
+   python database.py
+
    ```
 
 ## Usage
