@@ -28,7 +28,12 @@ Gym Not Jim is a command-line interface (CLI) fitness tracker built with Python 
    pip install -r requirements.txt
    ```
 
-4. Initialize the database:
+4. If you don't have Alembic and Colorama installed, install them manually:
+   ```sh
+   pip install alembic colorama
+   ```
+
+5. Initialize the database:
    ```sh
    python setup_database.py
    ```
@@ -88,5 +93,5 @@ python main.py delete-workout --id <WORKOUT_ID>
 This project is licensed under the MIT License.
 
 ## Author
-Your Name - [GitHub Profile](https://github.com/issadiinow)
+Issadiinow - [GitHub Profile](https://github.com/issadiinow)
 
